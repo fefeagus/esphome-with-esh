@@ -1,0 +1,51 @@
+esphome:
+  name: wifi-mesh
+  friendly_name: Wifi mesh
+
+esp32:
+  board: esp32dev
+  variant: ESP32
+
+logger:
+  level: DEBUG
+
+api:
+  encryption:
+    key: "jDkzqj7rdHRiJ1deAp7+2mlDBD0Y3UHABNxdVBCnDPo="
+  reboot_timeout: 0s  # Opcional: evita reinicios forzados
+
+ota:
+  - platform: esphome
+
+wifi-mesh:
+  ssid: IPLAN-571650
+  password: A9CT2PK4DPSG
+  
+  # Fuerza conexión por IP (soluciona mDNS)
+  use_address: 192.168.1.50
+  
+  # IP estática para estabilidad
+  manual_ip:
+    static_ip: 192.168.1.50
+    gateway: 192.168.1.1
+    subnet: 255.255.255.0
+    dns1: 192.168.1.1
+
+  ap:
+    ssid: "Wifi mesh Fallback Hotspot"
+    password: "XhY0xXFl8Qdz"
+
+
+
+  
+output:
+  - platform: ledc
+    id: led_output
+    pin:
+      number: GPIO2
+       
+
+light:
+  - platform: monochromatic
+    name: "LED placa"
+    output: led_output
