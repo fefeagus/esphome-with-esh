@@ -17,7 +17,7 @@ api:
 ota:
   - platform: esphome
 
-wifi-mesh:
+wifi:
   ssid: IPLAN-571650
   password: A9CT2PK4DPSG
   
@@ -49,3 +49,8 @@ light:
   - platform: monochromatic
     name: "LED placa"
     output: led_output
+
+wifi_mesh:
+
+
+
